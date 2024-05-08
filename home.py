@@ -7,7 +7,7 @@ import streamlit as st
 def run_home() :
     st.markdown('## ✨컨텐츠에 등장한 그 장면!✨')
     st.markdown('### 궁금한 그 장소를 찾아드립니다')
-    st.markdown('#### 미디어 성지 순례')
+    
     st.markdown('해당 데이터셋은 문화 빅데이터 플랫폼에서 내려받았으며')
     st.markdown('한국 문화 정보원에서 제공한')
     st.markdown('KC_MEDIA_VIDO_AREA_DATA_2023.csv를 사용하였습니다')
