@@ -9,9 +9,10 @@ import pandas as pd
 def run_eda() :
     st.subheader('전체의 데이터프레임을 보여드립니다')
     df = pd.read_csv('./data/media_area.csv', index_col=0)
-    st.info(f'전체 데이터의 갯수는 {df.shape}입니다.')
-    st.dataframe(df)
-    
+    if st.checkbox("전체 데이터 보기"):
+        st.info(f'전체 데이터의 갯수는 {df.shape}입니다.')
+        st.dataframe(df)
+
     '''
     여기서 보여줄 것들
     1. 전체 데이터프레임 - 완
