@@ -75,6 +75,7 @@ def run_eda() :
 
     st.markdown('##### 찾고자 하는 미디어 프로그램의 제목을 선택하세요')
     st.markdown('###### 위의 미디어의 유형을 먼저 선택하시면 좀 더 찾기 쉬울거에요')
+    st.markdown('타이핑으로 검색도 된답니다(❁´◡`❁)')
 
     # 제목 선택 상자
     selected_title = st.selectbox('프로그램 제목', [''] + sorted(filtered_df['제목'].unique()))
@@ -96,9 +97,8 @@ def run_eda() :
     # 필터링된 데이터프레임 출력
     st.dataframe(filtered_df.loc[:, '미디어유형':'주소'])
     # 위도와 경도가 있는 데이터프레임 생성
-    location_df = filtered_df[['장소', '위도', '경도']]
-    location_df.columns = [ '장소','LAT', 'LON']  # 컬럼 이름 변경
+    location_df = filtered_df[['위도', '경도']]
+    location_df.columns = ['LAT', 'LON']  # 컬럼 이름 변경
 
     # 지도에 마커 표시
     st.map(location_df)
-
