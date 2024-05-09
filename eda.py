@@ -68,8 +68,8 @@ def run_eda() :
         filtered_df = filtered_df[filtered_df['미디어유형'] == selected_media_type]
 
     st.markdown('##### 찾고자 하는 미디어 프로그램의 제목을 선택하세요')
-    st.markdown('###### 위의 미디어의 유형을 먼저 선택하시면 좀 더 찾기 쉬울거에요')
-    st.markdown('타이핑으로 검색도 된답니다(❁´◡`❁)')
+    st.markdown('###### 위의 미디어의 유형을 먼저 선택하시면 좀 더 찾기 쉬워요')
+    st.markdown('타이핑으로도 검색 된답니다(❁´◡`❁)')
 
     # 제목 선택 상자
     selected_title = st.selectbox('프로그램 제목', [''] + sorted(filtered_df['제목'].unique()))
