@@ -1,9 +1,6 @@
 import streamlit as st
 
 
-
-
-
 def run_home() :
     st.markdown('## ✨컨텐츠에 등장한 그 장면!✨')
     st.markdown('### 궁금한 그 장소를 찾아드립니다.')
