@@ -9,9 +9,9 @@ import pandas as pd
 def run_eda() :
     st.subheader('전체의 데이터프레임을 보여드립니다')
     df = pd.read_csv('./data/media_area.csv', index_col=0)
-    if st.checkbox("전체 데이터 보기"):
-        st.info(f'전체 데이터의 갯수는 {df.shape}입니다.')
-        st.dataframe(df)
+    if st.checkbox("전체 촬영지 보기"):
+        st.info(f'전체 촬영지의 갯수는 {format(df.shape[0], ",")}입니다.')
+        st.dataframe(df.loc[ : , : '주소'])
 
     '''
     여기서 보여줄 것들
@@ -22,14 +22,7 @@ def run_eda() :
     5. 마지막으로 선택한 것들의 지도(위도 경도 컬럼 이용한 st.map이용) - 완
     '''
 
-    
 
-    # Streamlit session state
-    def session_state(**kwargs):
-        for key, val in kwargs.items():
-            setattr(session_state, key, val)
-            
-            
     # 주소 스플릿해서 첫 번째와 두 번째 값을 추출하는 함수
     def split_address(address):
         parts = address.split(' ')
@@ -95,6 +88,8 @@ def run_eda() :
     if selected_location_type != '':
         filtered_df = filtered_df[filtered_df['장소유형'] == selected_location_type]
 
+
+    st.subheader('해당되는 장소를 알려드립니다')
     # 필터링된 데이터프레임 출력
     st.dataframe(filtered_df.loc[:, '미디어유형':'주소'])
     # 위도와 경도가 있는 데이터프레임 생성
@@ -102,4 +97,5 @@ def run_eda() :
     location_df.columns = ['LAT', 'LON']  # 컬럼 이름 변경
 
     # 지도에 마커 표시
+    st.subheader('지도로 보면 이 곳에 있어요')
     st.map(location_df)
